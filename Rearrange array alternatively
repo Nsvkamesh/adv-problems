@@ -1,0 +1,37 @@
+import java.util.*;
+class pgm{
+    
+    public int[] merging(int[]arr,int[]arr2){
+        int tempp=0;
+        int j=arr.length/2;
+        for(int i=arr.length-1;i>=j;i--){
+            arr2[tempp]=arr[i];
+            tempp=tempp+2;
+        }
+        int temp=1;
+        int r=arr.length/2;
+        for(int i=0;i<r;i++){
+            arr2[temp]=arr[i];
+            temp=temp+2;
+        }
+        
+        return arr2;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+		int[]arr=new int[n];
+		int[]arr2=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=sc.nextInt();
+		}
+		pgm p=new pgm();
+		int []x=p.merging(arr,arr2);
+		for(int i:arr2){
+		System.out.println(i);
+	}
+	}
+}
