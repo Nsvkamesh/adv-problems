@@ -1,0 +1,30 @@
+import java.util.*;
+class pgm{
+    int count=0;
+    int j=0;
+    public int  kdanes(int[]arr){
+        for(int i=0;i<arr.length;i++){
+            count=0;
+            count=count+arr[i];
+            for(int j=i+1;j<arr.length;j++){
+                    count=count+arr[j];
+                }
+        j=Math.max(j,count);
+        }
+        return j;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+		int[]arr=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=sc.nextInt();
+		}
+		pgm p=new pgm();
+		int x=p.kdanes(arr);
+		System.out.println(x);
+	}
+}
