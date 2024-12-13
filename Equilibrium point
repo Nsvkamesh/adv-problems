@@ -1,0 +1,31 @@
+import java.util.*;
+class pgm{
+    public int pairs(int[]arr){
+        int end=arr.length-1;
+        int x=0;
+        int y=0;
+        for(int i=0;i<arr.length;i++){
+            x=x+arr[i];
+            y=y+arr[end];
+            end--;
+            if(x==y){
+               return i+1;
+            }
+        }
+        return -1;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int[]arr=new int[n];
+	    for(int i=0;i<n;i++){
+	        arr[i]=sc.nextInt();
+	    }
+	    pgm p=new pgm();
+	    int x=p.pairs(arr);
+	    System.out.println(x);
+	}
+}
