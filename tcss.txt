@@ -1,0 +1,346 @@
+
+(kdanes,largest sum sub array)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		int count=0;
+		for(int i=0;i<arr.length;i++){
+		    count=arr[i];
+		    for(int j=i+1;j<arr.length;j++){
+		         count=count+arr[j];
+		         sum=Math.max(count,sum);
+		    }
+		   x=Math.max(x,sum); 
+		}
+		System.out.println(x);
+	}
+}
+____________________________________________________________________________________
+(highest repeated value)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		boolean[]x=new boolean[arr.length];
+		int count=1;
+		int maxcount=0;
+		int value=0;
+		for(int i=0;i<arr.length;i++){
+		    if(x[i]){
+		        continue;
+		    }
+		    count=1;
+		    for(int j=i+1;j<arr.length;j++){
+		        if(arr[i]==arr[j]){
+		            count++;
+		            x[j]=true;
+		        }
+		    }
+		   if(count>maxcount){
+		       maxcount=count;
+		       value=arr[i];
+		   }
+		}
+		   System.out.println(value);
+		}
+		
+}
+______________________________________________________________________________________
+(non duplicate no)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		boolean[]x=new boolean[arr.length];
+		int count=1;
+		for(int i=0;i<arr.length;i++){
+		    if(x[i]){
+		        continue;
+		    }
+		    count=1;
+		    for(int j=i+1;j<arr.length;j++){
+		        if(arr[i]==arr[j]){
+		            count++;
+		            x[j]=true;
+		        }
+		    }
+		    if(count==1)
+		 System.out.println("the number "+arr[i]+" has repeated "+count+" times");
+		}
+	}
+}
+_____________________________________________________________________________________________
+(duplicate numbers  with count)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		boolean[]x=new boolean[arr.length];
+		int count=1;
+		for(int i=0;i<arr.length;i++){
+		    if(x[i]){
+		        continue;
+		    }
+		    count=1;
+		    for(int j=i+1;j<arr.length;j++){
+		        if(arr[i]==arr[j]){
+		            count++;
+		            x[j]=true;
+		        }
+		    }
+		    if(count>1)
+		 System.out.println("the number "+arr[i]+" has repeated "+count+" times");
+		}
+	}
+}
+_____________________________________________________________________________________________
+(freaquency of evry no)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		boolean[]x=new boolean[arr.length];
+		int count=1;
+		for(int i=0;i<arr.length;i++){
+		    if(x[i]){
+		        continue;
+		    }
+		    count=1;
+		    for(int j=i+1;j<arr.length;j++){
+		        if(arr[i]==arr[j]){
+		            count++;
+		            x[j]=true;
+		        }
+		    }
+		 System.out.println("the number "+arr[i]+" has repeated "+count+" times");
+		}
+	}
+}
+_____________________________________________________________________________________________
+(epam question(highest length of continuous elements)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		int count=1;
+		int x=0;
+		for(int i=0;i<arr.length-1;i++){
+		   if(arr[i+1]==arr[i]+1){
+		       count++;
+		   } 
+		   else{
+		       count=1;
+		   }
+		  x=Math.max(x,count);
+		}
+		System.out.println(x);
+	}
+}
+_____________________________________________________________________________________________
+(sub array with given sum)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int target=sc.nextInt();
+		sc.nextLine();
+		String[] n=sc.nextLine().split(" ");
+		int[]arr=new int[n.length];
+		for(int i=0;i<arr.length;i++){
+		    arr[i]=Integer.parseInt(n[i]);
+		}
+		int sum=0;
+		int temp=0;
+		for(int i=0;i<arr.length-1;i++){
+		    int[]arr1=new int[arr.length];
+		    temp=0;
+		    arr1[temp++]=arr[i];
+		    sum=arr[i];
+		  for(int j=i+1;j<arr.length;j++){
+		      sum=sum+arr[j];
+		      arr1[temp++]=arr[j];
+		      if(sum==target){
+		          System.out.println(Arrays.toString(Arrays.copyOf(arr1,temp)));
+		          break;
+		      }
+		  }
+		}
+	}
+}
+_____________________________________________________________________________________________
+(taking 3 diff ips)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		sc.nextLine();
+		String highest="";
+		int max=0;
+		int total=0;
+		float avg=0;
+
+		for(int i=0; i<n; i++) {
+			String parts[]=sc.nextLine().split(",");
+			int values=Integer.parseInt(parts[1])*Integer.parseInt(parts[2]);
+			total=total+values;
+			if(values>max) {
+				max=values;
+				highest=parts[0];
+			}
+			avg=avg+values;
+			if(i==n-1) {
+				avg=avg/3;
+			}
+		}
+		System.out.print(highest+",");
+		System.out.print(total+",");
+		System.out.print(avg);
+	}
+
+}
+__________________________________________________________________________________________
+(sliding window(maxed))
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split(" ");
+		int k=sc.nextInt();
+		int[]array=coins(n,k);
+		System.out.println(Arrays.toString(array));
+	}
+	static int []coins(String[]n,int k){
+	    int[]arr=new int[n.length];
+	    int[]arr1=new int[arr.length];
+	    for(int i=0;i<arr.length;i++){
+	        arr[i]=Integer.parseInt(n[i]);
+	    }
+	    int max=0;
+	    int temp=0;
+	    for(int i=0;i<=arr.length-k;i++){
+	        max=arr[i];
+	        for(int j=i+1;j<i+k;j++){
+	            if(arr[j]>max){
+	                max=arr[j];
+	            }
+	        }
+	        arr1[temp++]=max;
+	    }
+	    return Arrays.copyOf(arr1,temp);
+	}
+}
+_____________________________________________________________
+(ors or all subarrays)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[]n=sc.nextLine().split(" ");
+	    int[]arr=new int[n.length];
+	    for(int i=0;i<arr.length;i++){
+	        arr[i]=Integer.parseInt(n[i]);
+	    }
+	    Set<Integer>orr=new HashSet<>();
+	    int temp=0;
+	    for(int i=0;i<arr.length;i++){
+	        int or=0;
+	        for(int j=i;j<arr.length;j++){
+	            or=or|arr[j];
+	            orr.add(or);
+	        }
+	    }
+	    System.out.println(orr.size());
+	    
+	}
+}
+_______________________________________________________________
+(password)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String[] n=sc.nextLine().split("");
+		ArrayList<String>arr=new ArrayList<String>();
+		for(int i=0; i<n.length; i++) {
+			arr.add(n[i]);
+		}
+		boolean nani=false;
+		for(String k:arr){
+		    if(k.matches("[0-9]") || k.matches("[a-zA-Z]") || k.matches("[@#]") ||
+		    arr.size()<8){
+		    nani=true;
+		}
+		}
+		if(!nani){
+		    System.out.println("invalid");
+		}
+		else{
+		    for(String k:arr){
+		        if(k.matches("[0-9]")){
+		            int a=Integer.parseInt(k)+2;
+		            System.out.print(a);
+		        }
+		        else if(k.matches("[a-zA-Z]")){
+		            int b=(int) k.charAt(0)+2;
+		            char ch=(char) b;
+		            System.out.print(ch);
+		        }
+		        else if(k.matches("[@]")){
+		            char hc='#';
+		            System.out.print(hc);
+		        }
+		         else if(k.matches("[#]")){
+		            char hcc='@';
+		            System.out.print(hcc);
+		        }
+		    }
+		}
+	}
+}
+
+
+
+
